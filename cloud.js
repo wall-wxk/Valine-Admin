@@ -28,5 +28,21 @@ AV.Cloud.afterSave('Comment', function (request) {
 });
 
 AV.Cloud.define('intervalLoadUrl', function(request) {
-    return;
+    request.post(
+        {
+            url:'https://wangxiaokai.leanapp.cn',
+            form:{
+                username:'hahaha',
+                password:'wowowowow'
+            },
+            encoding:'utf8'
+        },
+        function(error, response, body){
+            if(response.statusCode == 200){
+                console.log(body);
+            }else{
+                console.log(response.statusCode);
+            }
+        }
+    );
 });
