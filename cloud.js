@@ -29,5 +29,4 @@ AV.Cloud.afterSave('Comment', function (request) {
 
 AV.Cloud.define('intervalLoadUrl', function(request) {
     return;
-  });
 });
