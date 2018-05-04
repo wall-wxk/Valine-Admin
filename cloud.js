@@ -26,3 +26,8 @@ AV.Cloud.afterSave('Comment', function (request) {
         console.warn('获取@对象失败！');
     });
 });
+
+AV.Cloud.define('intervalLoadUrl', function(request) {
+    return;
+  });
+});
