@@ -11,7 +11,7 @@ const transporter = nodemailer.createTransport({
 });
 
 exports.notice = (comment) => {
-    let emailSubject = '👉 咚！「' + process.env.SITE_NAME + '」上有新评论了';
+    let emailSubject = '主人好～ 「' + process.env.SITE_NAME + '」上有新评论了';
     let emailContent = '<p>「' + process.env.SITE_NAME + '」上 '
         + comment.get('nick')
         +' 留下了新评论，内容如下：</p>'
@@ -37,7 +37,7 @@ exports.notice = (comment) => {
 }
 
 exports.send = (currentComment, parentComment)=> {
-    let emailSubject = '👉 叮咚！「' + process.env.SITE_NAME + '」上有人@了你';
+    let emailSubject = '主人好～「' + process.env.SITE_NAME + '」上有人@了你';
     let emailContent = '<span style="font-size:16px;color:#212121">Hi，'
         + parentComment.get('nick')
         + '</span>'
