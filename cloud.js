@@ -1,5 +1,6 @@
 const AV = require('leanengine');
 const mail = require('./utilities/send-mail');
+const myrequest = require('request');
 
 AV.Cloud.afterSave('Comment', function (request) {
     let currentComment = request.object;
@@ -27,22 +28,11 @@ AV.Cloud.afterSave('Comment', function (request) {
     });
 });
 
-AV.Cloud.define('intervalLoadUrl', function(request) {
-    request.post(
-        {
-            url:'https://wangxiaokai.leanapp.cn',
-            form:{
-                username:'hahaha',
-                password:'wowowowow'
-            },
-            encoding:'utf8'
-        },
-        function(error, response, body){
-            if(response.statusCode == 200){
-                console.log(body);
-            }else{
-                console.log(response.statusCode);
-            }
-        }
-    );
+AV.Cloud.define('intervalLoadUrl', function() {
+    
+    myrequest('https://wangxiaokai.leanapp.cn', function (error, response, body) {
+      console.log('error:', error); // Print the error if one occurred
+      console.log('statusCode:', response && response.statusCode); // Print the response status code if a response was received
+      console.log('body:', body); // Print the HTML for the Google homepage.
+    });
 });
